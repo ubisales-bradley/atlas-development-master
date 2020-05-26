@@ -207,6 +207,8 @@ return [
     |
     */
 
+//    This is where we edit the files
+
     'menu' => [
         // [
         //     'text' => 'search',
