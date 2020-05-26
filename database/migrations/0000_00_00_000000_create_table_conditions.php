@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTableConditions extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('conditions', function (Blueprint $table) {
+
+            $table->id();
+            $table->uuid('router_id');
+            $table->enum('selector',['IF', 'ELSEIF', 'ELSE'])->nullable();
+            $table->foreignId('type_id');
+            $table->json('rule');
+            $table->tinyInteger('order');
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('conditions');
+    }
+}
